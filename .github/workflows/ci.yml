@@ -1,0 +1,65 @@
+name: FastAPI CI/CD with Pyenv, Pipenv, and Docker
+
+ 
+
+on:
+
+  push:
+
+    branches: [ main ]
+
+  pull_request:
+
+    branches: [ main ]
+
+ 
+
+jobs:
+
+  build-and-deploy:
+
+    runs-on: ubuntu-latest
+
+ 
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+ 
+
+    - name: Setup pyenv
+
+      uses: gabrielfalcao/pyenv-action@v1
+
+      with:
+
+        default: 3.8.5
+
+ 
+
+    - name: Install Pipenv
+
+      run: pip install pipenv
+
+ 
+
+    - name: Install dependencies
+
+      run: pipenv install --dev
+
+ 
+
+    - name: Run Tests
+
+      run: pipenv run pytest
+
+ 
+
+    - name: Build Docker image
+
+      run: docker build -t fastapi-app .
+
+ 
+
+    # Add steps for Docker push and deploy to Azure if needed
