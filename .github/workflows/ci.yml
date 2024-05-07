@@ -12,16 +12,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup pyenv
-      uses: gabrielfalcao/pyenv-action@v1
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
       with:
-        default: 3.11
-
-    - name: Install Pipenv
-      run: pip install pipenv
+        python-version: '3.11'
+        architecture: 'x64'
 
     - name: Install dependencies
-      run: pipenv install --dev
+      run: |
+        pip install pipenv
+        pipenv install --dev
 
     - name: Run Tests
       run: pipenv run pytest
@@ -30,3 +30,4 @@ jobs:
       run: docker build -t fastapi-app .
 
     # Add steps for Docker push and deploy to Azure if needed
+   
