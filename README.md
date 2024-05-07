@@ -31,6 +31,7 @@ vdi_vsms_api/
 │   └── test_api/
 │       ├── _init_.py
 │       └── test_user_management.py
+├── Dockerfile           # Docker file
 ├── Pipfile             # Pipenv dependency file
 └── Pipfile.lock        # Locked dependencies
 ```
