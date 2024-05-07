@@ -1,5 +1,6 @@
-# fastapi-azure-container
+# VDI
 This repo is skeleton for fastapi
+```
 vdi_vsms_api/
 │
 ├── app/                # Application-specific modules
@@ -32,3 +33,4 @@ vdi_vsms_api/
 │       └── test_user_management.py
 ├── Pipfile             # Pipenv dependency file
 └── Pipfile.lock        # Locked dependencies
+```
